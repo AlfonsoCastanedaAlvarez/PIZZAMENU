@@ -1,5 +1,6 @@
 package fesa.alfonso.holamundoimagenes;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -17,14 +18,14 @@ import com.bumptech.glide.Glide;
 public class MainActivity extends AppCompatActivity {
 
     ImageView imageView;
-    ImageButton imageButton;
 
     String url = "https://images.pexels.com/photos/36181249/pexels-photo-36181249.jpeg";
-    String url2 = "https://t41kw81t-3000.usw3.devtunnels.ms/images/menus/breads.png";
-    String url3 = "https://t41kw81t-3000.usw3.devtunnels.ms/images/menus/chicken.png";
-    String url4 = "https://t41kw81t-3000.usw3.devtunnels.ms/images/menus/dessert.png";
-    String url5 = "https://t41kw81t-3000.usw3.devtunnels.ms/images/menus/drinks.png";
-    String url6 = "https://t41kw81t-3000.usw3.devtunnels.ms/images/menus/pizza.png";
+    String baseUrl = "https://t41kw81t-3000.usw3.devtunnels.ms";
+    String url2 = baseUrl + "/images/menus/breads.png";
+    String url3 = baseUrl + "/images/menus/chicken.png";
+    String url4 = baseUrl + "/images/menus/dessert.png";
+    String url5 = baseUrl + "/images/menus/drinks.png";
+    String url6 = baseUrl + "/images/menus/pizza.png";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,11 @@ public class MainActivity extends AppCompatActivity {
 
         ImageButton imageButton5 = findViewById(R.id.imageButton5);
         Glide.with(this).load(url6).into(imageButton5);
+    }
+
+    public void irAPizzas(View view) {
+        Intent intent = new Intent(this, pizzas.class);
+        startActivity(intent);
     }
 
     public void saludar(View view){
